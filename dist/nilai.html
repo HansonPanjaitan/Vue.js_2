@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <title>Aplikasi Penghitung Nilai</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-gray-300"></body>
+
+  <!-- NAVIGASI -->
+  <nav class="py-4 pl-16 pr-10 flex flex-row justify-between bg-indigo-400 text-white">
+    <div class="font-bold text-gray-200 text-2xl">
+      <a href="index.html" class="focus:outline-none">Aplikasi Penghitungan</a>
+    </div>
+    <div class="flex flex-row space-x-4">
+      <button class="bg-gray-300 hover:bg-gray-400 w-16 h-8 text-gray-700 justify-center 
+        text-xl font-semibold rounded shadow-lg"><a href="Gaji.html">Gaji</a></button>
+      <button class="bg-gray-300 hover:bg-gray-400 w-16 h-8 text-gray-700 justify-center 
+        text-xl font-semibold rounded shadow-lg"><a href="Nilai.html">Nilai</a></button>
+    </div>
+  </nav>
+
+  <!-- KONTEN -->
+  <div class="bg-white my-8 mx-40 p-2 rounded-lg" id="app2">
+    <div class="justify-center flex items-center font-bold bg-indigo-400 
+      rounded-lg text-gray-200 w-full h-20 text-3xl">Menghitungan Nilai</div>
+    <div class="w-full max-w-xl rounded-lg p-6 mx-auto mt-10">
+      <div class="flex flex-row">
+        <label for="kehadiran" class="font-base mr-4 font-bold text-xl mb-4 w-40 
+          py-1 flex items-center">Nilai Kehadiran</label>
+        <input type="text"
+        class="border-2 rounded border-gray-300 h-9 w-60 py-1 px-2 focus:outline-none 
+          focus:ring-2 focus:ring-gray-400 focus:border-transparent" v-model="kehadiran">
+      </div>
+    <div class="flex flex-row mt-4">
+      <label for="tugas" class="font-base mr-4 font-bold text-xl mb-4 w-40
+        py-1 flex items-center">Nilai Tugas</label>
+      <input type="text"
+      class="border-2 rounded border-gray-300 h-9 w-60 py-1 px-2 focus:outline-none 
+        focus:ring-2 focus:ring-gray-400 focus:border-transparent" v-model="tugas">
+    </div>
+    <div class="flex flex-row mt-4">
+      <label for="mid" class="font-base mr-4 font-bold text-xl mb-4 w-40 
+        py-1 flex items-center">Nilai MID</label>
+      <input type="text"
+      class="border-2 rounded border-gray-300 h-9 w-60 py-1 px-2 focus:outline-none 
+        focus:ring-2 focus:ring-gray-400 focus:border-transparent" v-model="mid">
+    </div>  
+    <div class="flex flex-row mt-4">
+      <label for="uas" class="font-base mr-4 font-bold text-xl mb-4 w-40 
+        py-1 flex items-center">Nilai UAS</label>
+      <input type="text"
+      class="border-2 rounded border-gray-300 h-9 w-60 py-1 px-2 focus:outline-none 
+        focus:ring-2 focus:ring-gray-400 focus:border-transparent" v-model="uas">
+    </div>  
+    <div class="mt-4 text-center">
+      <button class="bg-green-500 text-white font-semibold text-lg rounded focus:outline-none 
+        py-2 px-3 hover:bg-green-600 shadow-lg" v-on:click="hitungHasil">Hasil</button>
+    </div>
+    <div class="flex flex-row mt-8">
+      <label for="angka" class="font-base mr-4 font-bold text-xl mb-4 w-40
+        py-1 flex items-center">Nilai Angka</label>
+      <output type="text"
+      class="border-2 border-gray-300 h-9 w-60 rounded py-1 px-2">
+      <span class="text-center">{{ angka }}</span>
+    </div> 
+    <div class="flex flex-row mt-8">
+      <label for="huruf" class="font-base mr-4 font-bold text-xl mb-4 w-40
+        py-1 flex items-center">Nilai Huruf</label>
+      <output type="text"
+      class="border-2 border-gray-300 h-9 w-60 rounded py-1 px-2">
+      <span class="text-center">{{ huruf }}</span>
+    </div>
+  </div>
+
+  <script>
+    var app2 = new Vue({
+      el: '#app2',
+      data: {
+        kehadiran: 0,
+        tugas: 0,
+        mid: 0,
+        uas: 0,
+        angka: 0,
+        huruf: 0
+      },
+      methods: {
+        hitungHasil(){
+          this.angka = (this.kehadiran * 0.1) + (this.tugas * 0.2) + (this.mid * 0.3) + (this.uas * 0.4)
+          this.huruf
+        }
+      }
+    })
+  </script>    
+</body>
+</html> 
